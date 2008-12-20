@@ -126,8 +126,8 @@ let g:outputz_secret_key = 'YOULLNEVERKNOW'
 
 "Ruby
 autocmd! BufWritePost *.rb :!ruby -c %
-autocmd BufNewFile,BufRead *.rb nnoremap ,r :<C-u>!ruby %<CR>
-autocmd BufNewFile,BufRead *_spec.rb nnoremap ,sp :<C-u>!spec %<CR>
+autocmd BufNewFile,BufRead *.rb nnoremap <buffer> ,r :<C-u>!ruby %<CR>
+autocmd BufNewFile,BufRead *_spec.rb nnoremap <buffer> ,sp :<C-u>!spec %<CR>
 
 autocmd BufnewFile,BufRead *.rhtml iunmap <buffer> =
 autocmd BufnewFile,BufRead *.rhtml iunmap <buffer> +
@@ -138,7 +138,7 @@ autocmd BufnewFile,BufRead *.erb iunmap <buffer> +
 autocmd BufnewFile,BufRead *.erb iunmap <buffer> -
 
 "Scheme
-autocmd BufnewFile,BufRead *.scm nnoremap ,r :<C-u>!gosh -i < %<CR>
+autocmd BufnewFile,BufRead *.scm nnoremap <buffer> ,r :<C-u>!gosh -i < %<CR>
 autocmd BufnewFile,BufRead *.scm iunmap <buffer> =
 autocmd BufnewFile,BufRead *.scm iunmap <buffer> +
 autocmd BufnewFile,BufRead *.scm iunmap <buffer> -
@@ -147,12 +147,12 @@ autocmd FileType scheme :let is_gauche=1
 
 "PHP
 "autocmd! BufWritePost *.php :!php -l %
-autocmd BufnewFile,BufRead *.php nnoremap ,r :<C-u>!php %<CR>
+autocmd BufnewFile,BufRead *.php nnoremap <buffer> ,r :<C-u>!php %<CR>
 
 "Haskell
-autocmd BufNewFile,BufRead *.hs nnoremap ,r :<C-u>!runghc %<CR>
-autocmd BufnewFile,BufRead *.hs inoremap <expr> - smartchr#one_of('->', '-')
-autocmd BufnewFile,BufRead *.hs inoremap <expr> $ smartchr#one_of(' $ ', '$')
+autocmd BufNewFile,BufRead *.hs nnoremap <buffer> ,r :<C-u>!runghc %<CR>
+autocmd BufnewFile,BufRead *.hs inoremap <buffer> <expr> - smartchr#one_of('->', '-')
+autocmd BufnewFile,BufRead *.hs inoremap <buffer> <expr> $ smartchr#one_of(' $ ', '$')
 "editing .vimrc " {{{1
 nmap <Space>. :<C-u>edit $MYVIMRC<CR>
 nmap <Space>s. :<C-u>source $MYVIMRC<CR>
