@@ -1,7 +1,7 @@
 "Basic " {{{1
 set foldmethod=marker
 
-set background=dark"
+set background=dark
 colorscheme xoria256
 
 set nocompatible
