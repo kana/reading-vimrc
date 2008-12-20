@@ -129,19 +129,19 @@ autocmd! BufWritePost *.rb :!ruby -c %
 autocmd BufNewFile,BufRead *.rb nnoremap ,r :<C-u>!ruby %<CR>
 autocmd BufNewFile,BufRead *_spec.rb nnoremap ,sp :<C-u>!spec %<CR>
 
-autocmd BufnewFile,BufRead *.rhtml inoremap <buffer> = =
-autocmd BufnewFile,BufRead *.rhtml inoremap <buffer> + +
-autocmd BufnewFile,BufRead *.rhtml inoremap <buffer> - -
+autocmd BufnewFile,BufRead *.rhtml iunmap <buffer> =
+autocmd BufnewFile,BufRead *.rhtml iunmap <buffer> +
+autocmd BufnewFile,BufRead *.rhtml iunmap <buffer> -
 
-autocmd BufnewFile,BufRead *.erb inoremap <buffer> = =
-autocmd BufnewFile,BufRead *.erb inoremap <buffer> + +
-autocmd BufnewFile,BufRead *.erb inoremap <buffer> - -
+autocmd BufnewFile,BufRead *.erb iunmap <buffer> =
+autocmd BufnewFile,BufRead *.erb iunmap <buffer> +
+autocmd BufnewFile,BufRead *.erb iunmap <buffer> -
 
 "Scheme
 autocmd BufnewFile,BufRead *.scm nnoremap ,r :<C-u>!gosh -i < %<CR>
-autocmd BufnewFile,BufRead *.scm inoremap <buffer> = =
-autocmd BufnewFile,BufRead *.scm inoremap <buffer> + +
-autocmd BufnewFile,BufRead *.scm inoremap <buffer> - -
+autocmd BufnewFile,BufRead *.scm iunmap <buffer> =
+autocmd BufnewFile,BufRead *.scm iunmap <buffer> +
+autocmd BufnewFile,BufRead *.scm iunmap <buffer> -
 
 autocmd FileType scheme :let is_gauche=1
 
