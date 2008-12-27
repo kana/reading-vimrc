@@ -1,3 +1,4 @@
+" settings {{{
 filetype plugin indent on
 set encoding=utf-8
 set termencoding=utf-8
@@ -16,17 +17,29 @@ set expandtab
 set hlsearch
 set splitbelow
 set splitright
+set switchbuf=useopen
+set background=dark
+syntax on
+set wildmode=list:longest
+set list
+set listchars=tab:>-,trail:-,extends:>,precedes:<
+set hidden
+set autoread
+set title
+set backspace=indent,eol,start
 
 
+
+
+" }}}
+" mappings {{{
 "let mapleader=" "
-
 nnoremap <Esc><Esc> :<C-u>set nohlsearch<Return>
 nnoremap / :<C-u>set hlsearch<Return>/
 nnoremap ? :<C-u>set hlsearch<Return>?
 nnoremap * :<C-u>set hlsearch<Return>*
 nnoremap # :<C-u>set hlsearch<Return>#
 
-nnoremap gs :source %<Cr>
 nnoremap vv <C-v>
 
 nnoremap sh <C-w>h
@@ -70,7 +83,14 @@ nnoremap cc zc
 inoremap <Tab> <C-n>
 nnoremap <Space>s :setfiletype<Space>
 nnoremap <Space>v :new ~/.vim/
+nnoremap <Space>I $i
+nnoremap <Space>C $xa
+nnoremap X ^x
 
+
+
+
+"}}}
 " kana's AlternateCommand {{{
 command! -nargs=* AlternateCommand  call s:cmd_AlternateCommand([<f-args>])
 function! s:cmd_AlternateCommand(args)
@@ -104,6 +124,11 @@ function! s:split_nicely()
   endif
 endfunction " }}}
 
+augroup MyVim
+  autocmd!
+  autocmd FileType vim nnoremap gs :source %<Cr>
+augroup END
+
 command! Big wincmd _ | wincmd |
 AlternateCommand big Big
 AlternateCommand man Man
@@ -121,16 +146,6 @@ let g:FuzzyFinderOptions.Base.key_open_split = '<Space>'
 let g:FuzzyFinderOptions.Base.key_open_vsplit = '<CR>'
 " }}}
 
-set switchbuf=useopen
-set background=dark
-syntax on
-set wildmode=list:longest
-set list
-set listchars=tab:>-,trail:-,extends:>,precedes:<
-set hidden
-set autoread
-set title
-set backspace=indent,eol,start
 
 " smartchr
 augroup MySmartchr
@@ -348,9 +363,6 @@ endfunction " }}}
 
 " for textobj-indent
 onoremap ii ii<C-o>
-
-nnoremap <Space>I $i
-nnoremap <Space>C $xa
 
 let g:gist_clip_command = 'pbcopy'
 
